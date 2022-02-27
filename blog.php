@@ -53,7 +53,7 @@ closeBtn.addEventListener("click",function(e){
 </div>';
 }
 ?>
-<h1 class="text-center"style="color:#ffbb33;-webkit-text-stroke:1.5px black;text-decoration:underline"><b><em>pEN ur PoINt Of vIeW</b></em></h1>
+<h1 class="text-center"style="color:#aaaa;-webkit-text-stroke:2.5px black;text-decoration:underline"><b><em>PEN UR POINT OF VIEW!</b></em></h1>
     <form method="post" action="<?php echo $_SERVER['PHP_SELF'];?>" class="up" enctype="multipart/form-data">
     <div class="carousel slide bg-light" data-bs-ride="carousel" >
         <div class="carousel-inner">

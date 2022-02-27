@@ -21,7 +21,7 @@ $result =  mysqli_query($conn,$query) or die("Something went wrong");
     }
 </style>
 <div class="card border-0 mb-3">
-    <h1 class="text-center m-2"style="color:#ffbb33;-webkit-text-stroke:1.5px black;text-decoration:underline"><b><em>pENnEd PoINt Of vIeWs</em></b></h1>
+    <h1 class="text-center m-2"style="color:#aaaa;-webkit-text-stroke:2.5px black;text-decoration:underline;"><b><em>PENNED POINT OF VIEW</em></b></h1>
 <?php
     $output="";
     if(mysqli_num_rows($result)<0){
@@ -41,7 +41,7 @@ $result =  mysqli_query($conn,$query) or die("Something went wrong");
         <h3 class="card-title"><b><?php echo $title;?></b></h3>
         <p class="card-text"><?php $sub = strip_tags(substr(nl2br($row['matter']),0,100),'<a href><b><i><strong><h1><h2><h3><h4><h5><h6>');echo(nl2br($sub));?> ....</p>
         <button type="button" name="open" class="btn btn-outline-warning read" data-eid="<?php echo $row['s.no']?>">Continue Reading</button>
-        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+        <p class="card-text"><small class="text-muted">Published <?php echo $row['date']; ?></small></p>
       </div>
     </div>
   </div>
