@@ -35,8 +35,8 @@ $sql2 = mysqli_query($conn,$query2) or die('Something went Wrong'.mysqli_error($
         <input type="text" id="disabledTextInput" class="form-control" placeholder="<?php echo $row1['email'];?>">
       </div>
     </fieldset>
-    <button type="button" id="log_out" class="btn btn-outline-warning" data-eid="<?php echo $row1['s.no']?>">Log
-      Out</button>
+    <!--<button type="button" id="log_out" class="btn btn-outline-warning" data-eid="<?php echo $row1['s.no']?>">Log
+      Out</button>-->
       <a class="btn btn-outline-warning" href="logout.php">Logout</a>
   </div>
 </div>
