@@ -1,9 +1,13 @@
 <?php 
 include "header.php"; 
 include "config.php";
-?>
-
-<?php
+session_start();
+if(!$_SESSION['user']){
+  $_SESSION['uid']="No writer";
+  header("location:login.php");
+}
+else{
+$user = $_SESSION['user'];
 $msg=0;
 $error=false;
   if(isset($_POST['upload'])){
@@ -13,8 +17,8 @@ $error=false;
     $temp = $_FILES["blog_image"]["tmp_name"];
     if($title && $matter && $file){
     $path = "uploads/".$file;
-    $query = "INSERT INTO posts (title,image,matter) VALUES ('$title','$file','$matter')";
-    $res = mysqli_query($conn,$query) or die('Connection Failed');
+    $query = "INSERT INTO posts (title,image,matter,Author) VALUES ('$title','$file','$matter','$user')";
+    $res = mysqli_query($conn,$query) or die('Connection Failed..Try again'.mysqli_error($query));
     if(move_uploaded_file($temp,$path)){
         $msg=1;
         echo '<script>
@@ -51,6 +55,7 @@ closeBtn.addEventListener("click",function(e){
   <strong>Oh no!</strong>There seems to be something missing...<b>Make sure to fill the fields!</b>
   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 </div>';
+}
 }
 ?>
 <h1 class="text-center"style="color:#aaaa;-webkit-text-stroke:2.5px black;text-decoration:underline"><b><em>PEN UR POINT OF VIEW!</b></em></h1>

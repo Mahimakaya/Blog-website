@@ -1,4 +1,7 @@
-<?php include "header.php"?>
+<?php 
+include "header.php";
+session_start();
+?>
 <!--Parallax-->
 <style>
   .out {
@@ -16,7 +19,7 @@
   <b class="out">THOUGHTS...</b>
   <b>POV</b>
   <p>Tell us your <b class="out">Point Of View</b></p>
-  <button type="button" class="btn btn-outline-warning m-1"><a href="blog.php">Share with us Ur POV</a></button>
+  <a class="btn btn-outline-warning m-1" href="blog.php">Share with us Ur POV</a>
 </div>
 
 <!--Cards full width-->
