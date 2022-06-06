@@ -78,7 +78,7 @@ include "header.php";
   <div class="card-img-overlay d-flex flex-column justify-content-center align-items-center">
     <b class="card-text" style="color:bisque;-webkit-text-stroke:1px antiquewhite;font-size:40px;text-align:center;">Let out your inner
       writer and share great and wise things!</b>
-      <a href="all.php" style="color:bisque;">Check out here --></a>
+      <a href="all.php" style="color:bisque;">Check out here -></a>
   </div>
 </div>
 

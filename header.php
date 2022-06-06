@@ -66,6 +66,9 @@
          z-index:10;
          width:100%;
      }
+     .btn{
+         font-weight:bold;
+     }
   </style>
     <title></title>
 </head>

@@ -24,15 +24,18 @@ $sql2 = mysqli_query($conn,$query2) or die('Something went Wrong'.mysqli_error($
    #card {
         box-shadow: 10px 10px 5px #aaaa;
     }
+    .btn{
+      color:black;
+    }
 </style>
 <section class="bg-light p-3">
 <div class="card mb-3 align-items-center justify-content-center border-0 bg-transparent">
   <img src="images/user.png" class="d-block" width="250px" height="250px" alt="...">
-  <div class="card-body m-5" style="width:-webkit-fill-available;">
+  <div class="card-body m-5" style="width:80%;">
     <h5 class="card-title">Welcome
       <?php echo $row1['name'];?>!
     </h5>
-    <fieldset disabled>
+    <fieldset disabled w-50>
       <div class="mb-3">
         <label for="disabledTextInput" class="form-label">Your Name</label>
         <input type="text" id="disabledTextInput" class="form-control" placeholder="<?php echo $row1['name'];?>">
@@ -44,9 +47,11 @@ $sql2 = mysqli_query($conn,$query2) or die('Something went Wrong'.mysqli_error($
     </fieldset>
     <!--<button type="button" id="log_out" class="btn btn-outline-warning" data-eid="<?php echo $row1['s.no']?>">Log
       Out</button>-->
+      <div class="text-center">
       <a class="btn btn-outline-warning" href="logout.php">Logout</a>
       <a class="btn btn-outline-warning edit" data-bs-toggle="modal"
             data-bs-target="#editModal" data-eid="<?php echo $_SESSION['uid']?>">Edit</a>
+      </div>
   </div>
 </div>
 

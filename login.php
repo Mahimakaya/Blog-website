@@ -52,6 +52,19 @@ else{
   form{
     z-index:1000;
   }
+  .mb-3{
+    text-align:left;
+  }
+  .card-title{
+    font-weight:bold;
+  }
+  .form-text{
+    text-align:-webkit-left;
+  }
+  .form-label{
+    font-size:large;
+    font-weight:bold;
+  }
   .for-icon{
     position: relative;
   }
@@ -82,9 +95,9 @@ else{
     </div>
     <div class="col-md-6 text-center d-flex flex-column justify-content-center align-items-center"
       style="background:#ffbb33">
-      <div class="card-body d-flex flex-column justify-content-center align-items-center">
+      <div class="card-body d-flex flex-column justify-content-center align-items-center" style="width:100%">
         <h2 class="card-title">Login Here!</h2>
-        <form method="post">
+        <form method="post" style="width:75%">
           <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Email address</label>
             <input type="email" placeholder="Email here...." id="email" class="form-control" id="exampleInputEmail1"
@@ -96,7 +109,6 @@ else{
               <i class="icon far fa-eye-slash" id="showPassword"></i>
               <input type="password" class="form-control" id="password">
             </div>
-            <div id="emailHelp" class="form-text">Password should be minimum 8 characters</div>
           </div>
           <button type="submit" id="loginBtn" class="btn btn-outline-dark">Login</button>
         </form>
@@ -109,11 +121,11 @@ else{
 <div class="card" id="signup">
   <div class="row g-0">
     <div class="col-md-6 text-center d-flex flex-column justify-content-center align-items-center" style="background:#ffbb33">
-      <div class="card-body d-flex flex-column justify-content-center align-items-center">
+      <div class="card-body d-flex flex-column justify-content-center align-items-center" style="width:100%">
         <h2 class="card-title">Register Here!</h2>
-        <form method="post">
+        <form method="post" style="width:75%">
           <div class="mb-3">
-            <label for="exampleInputname" class="form-label">Name</label>
+            <label for="exampleInputname" class="form-label">User Name</label>
             <input type="text" placeholder="Your name here...." id="sname" class="form-control" id="exampleInputname"
               aria-describedby="emailHelp">
           </div>
@@ -128,6 +140,7 @@ else{
               <i class="icon far fa-eye-slash" id="hidePassword"></i>
               <input type="password" class="form-control" id="spassword">
             </div>
+            <div id="emailHelp" class="form-text">Password should be minimum 6 characters</div>
           </div>
           <button type="submit" id="registerBtn" class="btn btn-outline-dark">Register</button>
         </form>
@@ -186,6 +199,11 @@ else{
       }
       if(validateEmail(semail)===false){
         alert("Enter valid email");
+        return;
+      }
+      if(spassword.length < 6){
+        alert("Password should have min 6 characters");
+        return;
       }
       else{
         $.ajax({
