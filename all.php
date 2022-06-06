@@ -72,7 +72,7 @@ $result =  mysqli_query($conn,$query) or die("Something went wrong");
                             <?php $sub = strip_tags(substr(nl2br($row['matter']),0,100),'<a href><b><i><strong><h1><h2><h3><h4><h5><h6>');echo(nl2br($sub));?>
                             ....
                         </p>
-                        <button type="button" name="open" class="btn btn-outline-warning read"
+                        <button type="button" name="open" class="btn btn-secondary read"
                             data-eid="<?php echo $row['s.no']?>">Continue Reading</button>
                         <p class="card-text"><small class="text-muted">Published by
                                 <?php echo $row['Author']; ?> at
@@ -110,11 +110,19 @@ $result =  mysqli_query($conn,$query) or die("Something went wrong");
         }else{
         ?>
             <li class="page-item"><a class="page-link" href="?pager=<?php echo $i?>">
-                    <?php echo $i;?>
-                </a></li>
-            <?php } }?>
-            <a class="page-link" href="?pager=<?php echo 2 + ($pager/$record)?>">Next</a>
-            </li>
+                <?php echo $i;?>
+            </a></li>
+            <?php } }
+             if($pager/$record < $page){?>
+                <a class="page-link" href="?pager=<?php echo 2 + ($pager/$record)?>">Next</a>
+            <?php }
+            else{
+                ?>
+                <li class="page-item disabled">
+                <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Next</a>
+                </li>
+            <?php
+            }?>
         </ul>
     </nav>
 </section>

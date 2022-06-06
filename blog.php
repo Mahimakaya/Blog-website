@@ -1,15 +1,17 @@
 <?php 
+ob_start();
+session_start();
 include "header.php"; 
 include "config.php";
-session_start();
+
 if(!$_SESSION['user']){
   $_SESSION['uid']="No writer";
-  header("location:login.php");
+  header("location:./login.php");
 }
 else{
-$user = $_SESSION['user'];
-$msg=0;
-$error=false;
+  $user = $_SESSION['user'];
+  $msg=0;
+  $error=false;
   if(isset($_POST['upload'])){
     $title = $_POST['title'];
     $matter = $_POST['body'];
@@ -32,9 +34,6 @@ $error=false;
       $error=true;
     }
   }
-?>
-
-<?php
 if($msg==1){
   echo '<div class="alert alert-success alert-dismissible fade show" role="alert">
   <strong>Success!</strong> Hurray!....You have uploaded your blog! <b>On closing this alert You will be redirected to home page!</b>"
@@ -45,11 +44,9 @@ var closeBtn = document.getElementById("close");
 closeBtn.addEventListener("click",function(e){
   e.preventDefault();
   window.location.href = "index.php";
-  
 });
 </script>
 ';
-
 }else if($error){
   echo '<div class="alert alert-warning alert-dismissible fade show" role="alert">
   <strong>Oh no!</strong>There seems to be something missing...<b>Make sure to fill the fields!</b>
@@ -58,18 +55,19 @@ closeBtn.addEventListener("click",function(e){
 }
 }
 ?>
+
 <h1 class="text-center"style="color:#aaaa;-webkit-text-stroke:2.5px black;text-decoration:underline"><b><em>PEN UR POINT OF VIEW!</b></em></h1>
     <form method="post" action="<?php echo $_SERVER['PHP_SELF'];?>" class="up" enctype="multipart/form-data">
-    <div class="carousel slide bg-light" data-bs-ride="carousel" >
+    <div class="carousel slide bg-dark mx-4" data-bs-ride="carousel" style="color:white">
         <div class="carousel-inner">
           <div class="carousel-item active d-flex justify-content-center">
             <input type="file" id="blog_image" onchange="loadFile(event)" accept="image/*" name="blog_image" hidden>
-            <img src="" id="dis" class="d-block" style="height: 550px;" alt="Your image Goes here....">
+            <img src="" id="dis" class="d-block" style="height: 550px;" alt="Your image Goes here...." style="color:white">
           </div>
         </div>
       </div>
      
-      <label for="blog_image" style="position: relative;left: 95%;"><i class="fa-solid fa-upload "></i></label>
+      <label for="blog_image" style="position: relative;left: 95%;width:50px;cursor:pointer"><i class="fa-solid fa-upload "></i></label>
       
       <div class="card text-center m-4 bg-dark">
         <div class="card-header">

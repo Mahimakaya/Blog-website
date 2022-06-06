@@ -1,6 +1,6 @@
-<?php 
+<?php
+session_start(); 
 include "header.php";
-session_start();
 ?>
 <!--Parallax-->
 <style>
@@ -8,11 +8,16 @@ session_start();
     -webkit-text-stroke: 2px #ffbb33;
     color: transparent;
   }
-
   .card-text {
     font-size: 20px;
   }
-  
+  .img-fluid{
+    height:100px;
+  }
+  #read_more{
+    color:black;
+    font-weight:600;
+  }
 </style>
 <div class="parallax d-flex align-items-center flex-column justify-content-center">
   <p style="font-weight:500">Pen Ur</p>
@@ -33,14 +38,11 @@ session_start();
         <h5 class="card-title">Card title</h5>
         <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content.
           This content is a little bit longer.</p>
-        <p id="unknown1" style="display: none;">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Rem quisquam,
+        <p id="unknown1" class="card-text" style="display: none;">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Rem quisquam,
           consectetur labore sunt illo qui, ipsum
           quam perspiciatis natus porro, laudantium vitae incidunt dicta hic sed totam neque molestiae harum debitis
           quod adipisci voluptatibus
-          dolores magnam. Eligendi assumenda sit, reiciendis minima veniam officiis exercitationem consectetur quis nemo
-          dicta quod quam at. Quis harum,
-          imi eveniet magni unde quibusdam odit? Placeat eos, vel amet libero ad nam
-          deleniti temporibus provident quod.</p>
+          </p>
         <button type="button" id="read_more" onclick="fun1()" class="btn btn-outline-warning">Read More</button>
       </div>
     </div>
@@ -54,14 +56,11 @@ session_start();
         <h5 class="card-title">Card title</h5>
         <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content.
           This content is a little bit longer.</p>
-        <p id="unknown2" style="display: none;">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Rem quisquam,
+        <p id="unknown2" class="card-text" style="display: none;">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Rem quisquam,
           consectetur labore sunt illo qui, ipsum
           quam perspiciatis natus porro, laudantium vitae incidunt dicta hic sed totam neque molestiae harum debitis
           quod adipisci voluptatibus
-          dolores magnam. Eligendi assumenda sit, reiciendis minima veniam officiis exercitationem consectetur quis nemo
-          dicta quod quam at. Quis harum,
-          animi eveniet magni unde quibusdam odit? Placeat eos, vel amet libero ad nam
-          deleniti temporibus provident quod.</p>
+         </p>
         <button type="button" id="read_more" onclick="fun2()" class="btn btn-outline-warning">Read More</button>
       </div>
     </div>
@@ -71,23 +70,25 @@ session_start();
   </div>
 </div>
 
+
 <div class="card text-white" style="font-size: 30px;">
   <img
     src="https://images.unsplash.com/photo-1598391990342-311775e3d374?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
     class="card-img" height="600px" alt="...">
   <div class="card-img-overlay d-flex flex-column justify-content-center align-items-center">
-    <b class="card-text" style="color:bisque;-webkit-text-stroke:1px antiquewhite;font-size:40px">Let out your inner
+    <b class="card-text" style="color:bisque;-webkit-text-stroke:1px antiquewhite;font-size:40px;text-align:center;">Let out your inner
       writer and share great and wise things!</b>
+      <a href="all.php" style="color:bisque;">Check out here --></a>
   </div>
 </div>
 
-<div class="row m-3 border-0">
+<div class="row m-3 p-2 border-0 justify-content-center">
   <div class="col-lg-4 mb-2 mt-2">
     <div class="card-header text-center" style="border:1px solid rgba(0,0,0,.125);">
       <h5>About</h5>
     </div>
-    <div class="card d-flex align-items-center">
-      <img src="images/profile.png" class="img-fluid" width="250px" alt="...">
+    <div class="card d-flex align-items-center p-3">
+      <img src="images/profile.png" class="img-fluid" height="100px" alt="...">
       <div class="card-body">
         <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
       </div>
@@ -97,8 +98,8 @@ session_start();
     <div class="card-header text-center" style="border:1px solid rgba(0,0,0,.125);">
       <h5>About</h5>
     </div>
-    <div class="card d-flex align-items-center">
-      <img src="images/girl.png" class="img-fluid" width="250px" alt="...">
+    <div class="card d-flex align-items-center p-3">
+      <img src="images/girl.png" class="img-fluid" height="100px" alt="...">
       <div class="card-body">
         <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
       </div>
@@ -108,8 +109,8 @@ session_start();
     <div class="card-header text-center" style="border:1px solid rgba(0,0,0,.125);">
       <h5>About</h5>
     </div>
-    <div class="card d-flex align-items-center">
-      <img src="images/man.png" class="img-fluid" width="250px" alt="...">
+    <div class="card d-flex align-items-center p-3">
+      <img src="images/man.png" class="img-fluid" height="100px" alt="...">
       <div class="card-body">
         <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
       </div>

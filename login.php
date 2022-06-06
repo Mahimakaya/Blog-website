@@ -1,4 +1,5 @@
 <?php 
+ob_start();
 include "header.php";
 error_reporting(0);
 session_start();
@@ -45,14 +46,34 @@ else{
   }
   a{
     z-index:10;
-    color:black;
-    text-decoration:none;
+    color:#4392db;
+    text-decoration:underline;
   }
   form{
     z-index:1000;
   }
+  .for-icon{
+    position: relative;
+  }
+  .for-icon i{
+    cursor:pointer;
+  }
+  .icon{
+    position:absolute;
+    padding:0.7rem;
+    right:1%;
+  }
+  @media screen and (max-width:768px){
+    .login,.signup{
+      display:none;
+    }
+    .row{
+      height:92.5vh;
+    }
+  }
 </style>
 <!--Cards full width-->
+
 <div class="card" id="login">
   <div class="row g-0">
     <div class="col-md-6 login" style="height:92.5vh">
@@ -71,7 +92,10 @@ else{
           </div>
           <div class="mb-3">
             <label for="exampleInputPassword1" class="form-label">Password</label>
-            <input type="password" class="form-control" id="password">
+            <div class="container d-flex for-icon">
+              <i class="icon far fa-eye-slash" id="showPassword"></i>
+              <input type="password" class="form-control" id="password">
+            </div>
             <div id="emailHelp" class="form-text">Password should be minimum 8 characters</div>
           </div>
           <button type="submit" id="loginBtn" class="btn btn-outline-dark">Login</button>
@@ -99,8 +123,11 @@ else{
             <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
           </div>
           <div class="mb-3">
-            <label for="exampleInputPassword1" class="form-label">Password</label>
-            <input type="password" class="form-control" id="spassword" id="exampleInputPassword1">
+            <label for="exampleInputPassword1" class="form-label" placeholder="Minimum 6 characters">Password</label>
+            <div class="container d-flex for-icon">
+              <i class="icon far fa-eye-slash" id="hidePassword"></i>
+              <input type="password" class="form-control" id="spassword">
+            </div>
           </div>
           <button type="submit" id="registerBtn" class="btn btn-outline-dark">Register</button>
         </form>
@@ -117,7 +144,7 @@ else{
   $(document).ready(function(){
     $("#loginBtn").on('click',function(e){
       e.preventDefault();
-     var email = document.getElementById("email").value;
+      var email = document.getElementById("email").value;
       var password = document.getElementById("password").value;
       var login = "login";
       if(!password || !email){
@@ -145,15 +172,20 @@ else{
         });
       }
     });
+
     $("#registerBtn").on('click',function(e){
       e.preventDefault();
       var sname = document.getElementById("sname").value;
       var semail = document.getElementById("semail").value;
       var spassword = document.getElementById("spassword").value;
       var register = "register";
+      var validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
       if(!sname || !semail || !spassword){
         alert("Fill all the fields");
         return;
+      }
+      if(validateEmail(semail)===false){
+        alert("Enter valid email");
       }
       else{
         $.ajax({
@@ -194,5 +226,21 @@ else{
      y.style.zIndex="10";
     }
   }
+  showPassword.addEventListener('click',function(e){
+    var password = document.getElementById('password');
+    const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+    password.setAttribute('type', type);
+    // toggle the eye slash icon
+    this.classList.toggle('fa-eye');
+    this.classList.toggle('fa-eye-slash');
+  })
+  hidePassword.addEventListener('click',function(e){
+    var password = document.getElementById('spassword');
+    const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+    password.setAttribute('type', type);
+    // toggle the eye slash icon
+    this.classList.toggle('fa-eye');
+    this.classList.toggle('fa-eye-slash');
+  })
 </script>
 </html>
