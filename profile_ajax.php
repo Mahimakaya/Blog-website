@@ -1,4 +1,6 @@
 <?php
+ob_start();
+session_start();
 include "config.php";
 
 if(isset($_POST['update'])){
@@ -75,12 +77,13 @@ if(isset($_POST['saveProfile'])){
   $id2 = $_POST['id'];
   $name = $_POST['pname'];
   $email = $_POST['pemail'];
-
+  $user = $_POST['user'];
   $query2 = "UPDATE `user` SET `name` = '$name',`email` = '$email' WHERE `sno` = '$id2'";
-  $query4 = "UPDATE `posts` SET `Author` = '$name' WHERE `Author` = '$name'";
+  $query4 = "UPDATE `posts` SET `Author` = '$name' WHERE `Author` = '$user'";
+
   $sql2 = mysqli_query($conn,$query2) or die('Connection Failed!'.mysqli_error($conn));
   $sql4 = mysqli_query($conn,$query4) or die('Name not changed!'.mysqli_error($conn));
-
+  $_SESSION['user'] = $name;
   if($sql2 && $sql4){
       echo "Updated!";
   }

@@ -137,6 +137,7 @@ if(mysqli_num_rows($sql2)<=0){
 
 <script>
   //read the whole blog
+  var UserName = '<?php echo $_SESSION['user'] ?>' ;
   $(document).on("click", ".read", function (e) {
     var id = $(this).data("eid");
     var show = "show";
@@ -233,6 +234,7 @@ if(mysqli_num_rows($sql2)<=0){
     var pname = $('#pName').val();
     var pemail = $('#pEmail').val();
     var saveProfile = "saveProfile";
+    var user = UserName;
     if(validateEmail(pemail)===false){
       alert("Enter valid email!");
       return;
@@ -246,6 +248,7 @@ if(mysqli_num_rows($sql2)<=0){
         id: id,
         pname:pname,
         pemail:pemail,
+        user:user,
         saveProfile:saveProfile,
       },
       success: function (data) {

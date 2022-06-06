@@ -67,9 +67,9 @@ closeBtn.addEventListener("click",function(e){
         </div>
       </div>
      
-      <label for="blog_image" style="position: relative;left: 95%;width:50px;cursor:pointer"><i class="fa-solid fa-upload "></i></label>
+      <label for="blog_image" style="position:absolute;right:2rem;cursor:pointer"><i class="fa-solid fa-upload "></i></label>
       
-      <div class="card text-center m-4 bg-dark">
+      <div class="card text-center m-4 bg-dark" style="position:relative;top:1rem">
         <div class="card-header">
           <h3><input type="text" placeholder="Title" name="title" id="title"></h3>
         </div>
